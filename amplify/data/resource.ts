@@ -15,7 +15,10 @@ const schema = a.schema({
         .string()
         .authorization((allow) => [allow.owner().to(["read", "delete"])]),
     })
-    .authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
+    .authorization((allow) => [
+      allow.publicApiKey().to(["read"]),
+      allow.owner(),
+    ]),
   Comment: a
     .model({
       content: a.string().required(),
@@ -25,7 +28,10 @@ const schema = a.schema({
         .string()
         .authorization((allow) => [allow.owner().to(["read", "delete"])]),
     })
-    .authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
+    .authorization((allow) => [
+      allow.publicApiKey().to(["read"]),
+      allow.owner(),
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
