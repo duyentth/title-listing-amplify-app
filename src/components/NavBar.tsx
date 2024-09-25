@@ -9,6 +9,7 @@ import { useTransition } from "react";
 
 const NavBar = ({ isSignedIn }: { isSignedIn: boolean }) => {
   const [authCheck, setAuthCheck] = useState(isSignedIn);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
